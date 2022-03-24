@@ -9,25 +9,56 @@ Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi d
 
 
 
-const containerCard=document.querySelector('.row');
+ const structureIcons = document.querySelector('.row');
 
-function creoBox(icona){
+ createDivIcons(icons);
+ 
+ 
+ function createDivIcons(icon) {
+     structureIcons.innerHTML = '';
+ 
+     for (let i = 0; i < icon.length; i++) {
+         const iconDiv = createDiv(icon[i]);
+         structureIcons.appendChild(iconDiv);
+     }
+ }
+ 
+ function createDiv(Element) {
+     const iconCreate = document.createElement('div');
+     iconCreate.className = "icon-img  col-2 border border-dark rounded mt-3 slide-fwd-center";
+     iconCreate.innerHTML = `
+     <div class=" text-center fs-1 ">
+     <i class='${Element.family} ${Element.prefix}${Element.name} ${Element.color}'></i>
+         <h5 class="text-center">${Element.name}</h5>
+     </div>
+     `
+     return iconCreate;
+ }
 
-    let box = document.createElement('div');
-    box.className ="col-2 text-center m-4 bg-white p-3 rounded-2"
-    box.innerHTML =`
-    <div><i class="${icona.family} ${icona.prefix}${icona.name} ${icona.color} "></i>
-        <h2>${icona.name} </h2> 
-    </div>
-    `
-    containerCard.appendChild(box);
-}
-
-function start(){
-    for(let i=0; i <icons.length; i++ ){
-        const element = icons[i];
-        creoBox(element);
-    }
-}
-
-start();
+ const changeGroup = document.getElementById('iconsSelection');
+ 
+ changeGroup.addEventListener('change', (event) => {
+ 
+     if (event.target.value === "all") {
+ 
+         createDivIcons(icons);
+     } else if (event.target.value === "animal") {
+         const animal = icons.filter((icons) => {
+             return (icons.type === 'animal');
+         })
+ 
+         createDivIcons(animal);
+     } else if (event.target.value === "vegetable") {
+         const animal = icons.filter((icons) => {
+             return (icons.type === 'vegetable');
+         })
+ 
+         createDivIcons(animal);
+     } else if (event.target.value === "user") {
+         const animal = icons.filter((icons) => {
+             return (icons.type === 'user');
+         })
+ 
+         createDivIcons(animal);
+     }
+ });

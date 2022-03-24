@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -19,22 +19,23 @@
   </head>
   <body>
     <header>
-      <h1 class=".bg-white text-primary ps-2 fw-bold">FontIcons</h1>
-      <div class="bg-info py-2 text-center text-white fw-bold">
-        <span class="px-2">FILTRA PER TIPO</span>
-        <select name="icons" id="icons">
-          <option value="">All</option>
-          <option value="">Animal</option>
-          <option value="">Vegetable</option>
-          <option value="">User</option>
-        </select>
-      </div>
+      <h1 class="text-start fw-bold fw-lighter mx-3 mt-2 mb-0">Font Icons</h1>
     </header>
-    <main>
-      <div id="container" class="container-fluid">
-        <div class="row bg-secondary p-3 justify-content-between"></div>
-      </div>
-    </main>
+
+    <div class="container-fluid bg-info py-3 mx-auto text-center text-light">
+      <label for="cars">FILTRA PER TIPO:</label>
+
+      <select id="iconsSelection">
+        <option value="all">All</option>
+        <option value="animal">Animal</option>
+        <option value="vegetable">Vegetable</option>
+        <option value="user">User</option>
+      </select>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row justify-content-between gap-3"></div>
+    </div>
   </body>
   <script src="data.js"></script>
   <script src="script.js"></script>
